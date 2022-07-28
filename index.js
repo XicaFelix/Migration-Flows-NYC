@@ -9,3 +9,11 @@ tableauBtn.addEventListener('click', (event)=>{
         dashboardDiv.style.display = 'none';
     }
 })
+
+// Adding Event Listener to Drop Down Menu
+const dropDown = document.getElementById('county-selection');
+dropDown.addEventListener('change', (event)=>{
+    event.preventDefault();
+    console.log(event.target.value);
+    
+})
