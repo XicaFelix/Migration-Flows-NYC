@@ -33,8 +33,6 @@ function renderFlows(data){
 
 
 // Adding Event Listener to the Submit Form
-
-
 const submitForm = document.getElementById('county-form');
 submitForm.addEventListener('submit', (event)=>{
     event.preventDefault();
@@ -46,6 +44,15 @@ submitForm.addEventListener('submit', (event)=>{
         let county = item[0];
         if (item[0]=== countyName) {
             console.log(item);
+            let migrationIn = document.createElement('li');
+            let migrationOut = document.createElement('li');
+            migrationIn.textContent = `${item[1]} people have moved from ${item[0]}`;
+            migrationOut = `${item[2]} have moved to ${item[0]}`;
+            const resultsList = document.getElementById('results-list');
+            resultsList.append(migrationIn, migrationOut);
+
+        }else{
+            confirm("No Results for Your Search");
         }
     })
    
