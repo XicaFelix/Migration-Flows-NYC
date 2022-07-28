@@ -1,0 +1,43 @@
+<html>
+<head>
+  <meta charset='UTF-8'/>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'/>
+  <meta http-equiv='X-UA-Compatible' content='ie=edge'/>
+  <title>Population Shifts in NYC</title>
+  <link rel='stylesheet' href='index.css'/>
+</head>
+<body>
+    <div id="main">
+        <h1> Population Shifts in New York City</h1>
+        <div id="Tableau-Container">
+
+        </div>
+        <div id="Description">
+            <h2>What's This Project About?</h2>
+            <p>
+                New York City is a diverse city, with a unique culture. 
+                However, the population of NYC and other metropolitan cities has decreased during the pandemic. 
+                This project lets you see where everyone is going and coming from. 
+                The tableau at the top is Census data regarding how the population in the US has changed between 2020 and 2021.
+                Feel free to enter a county name, and see where everyone has moved from. 
+            </p>
+        </div>
+        <div id="search-section">
+         <label for="county-selection"> Choose a Borough</label> 
+         <select name="county-selection" id="county-selection">
+             <option value="061">Manhattan</option>
+             <option value="047">Brooklyn</option>
+             <option value="005">Bronx</option>
+            <option value="081">Queens</option>
+            <option value="085">Staten Island</option>
+         </select>
+        </div>
+        <div id="Migration-Results">
+            <ul>
+                <h3> Migration Flows for:</h3>
+            </ul>
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
