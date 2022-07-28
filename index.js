@@ -37,7 +37,11 @@ const submitForm = document.getElementById('county-form');
 submitForm.addEventListener('submit', (event)=>{
     event.preventDefault();
     // console.log(event.target[0].value);
-   let countyName = String(event.target[0].value);
+    let countyName = String(event.target[0].value);
+    const formInput = document.getElementById('county-name');
+     formInput.value = '';
+     const resultsList = document.getElementById('results-list');
+     resultsList.innerText = '';
 //    console.log(censusData);
 
     censusData.forEach((item)=>{
@@ -48,11 +52,11 @@ submitForm.addEventListener('submit', (event)=>{
             let migrationOut = document.createElement('li');
             migrationIn.textContent = `${item[1]} people have moved from ${item[0]}`;
             migrationOut = `${item[2]} have moved to ${item[0]}`;
-            const resultsList = document.getElementById('results-list');
+    
             resultsList.append(migrationIn, migrationOut);
 
         }else{
-            confirm("No Results for Your Search");
+            // confirm("No Results for Your Search");
         }
     })
    
