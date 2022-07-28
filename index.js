@@ -15,5 +15,12 @@ const dropDown = document.getElementById('county-selection');
 dropDown.addEventListener('change', (event)=>{
     event.preventDefault();
     console.log(event.target.value);
-    
+    dropDownValue = event.target.value;
+    fetch(`https://api.census.gov/data/2019/acs/flows?get=FULL1_NAME,FULL2_NAME,MOVEDIN,MOVEDOUT,MOVEDNET,GEOID1,GEOID2&for=county:${dropDownValue}&in=state:36`)
+    .then(resp=>resp.json())
+    .then(data=>renderFlows(data));
 })
+
+function renderFlows(data){
+    console.log(data.slice(0,10));
+}
