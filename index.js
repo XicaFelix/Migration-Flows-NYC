@@ -23,6 +23,7 @@ dropDown.addEventListener('change', (event)=>{
 
 let censusData = [];
 
+
 function renderFlows(data){
     console.log(data.slice(0,10));
     censusData = data.slice(1);
@@ -43,15 +44,15 @@ submitForm.addEventListener('submit', (event)=>{
      const resultsList = document.getElementById('results-list');
      resultsList.innerText = '';
 //    console.log(censusData);
-
+    let selectedCounty = dropDown.selectedOptions[0].text;
     censusData.forEach((item)=>{
         let county = item[0];
         if (item[0]=== countyName) {
             console.log(item);
             let migrationIn = document.createElement('li');
             let migrationOut = document.createElement('li');
-            migrationIn.textContent = `${item[1]} people have moved from ${item[0]}`;
-            migrationOut = `${item[2]} have moved to ${item[0]}`;
+            migrationIn.textContent = `${item[1]} people have moved from ${item[0]} to ${selectedCounty}`;
+            migrationOut = `${item[2]} have moved to ${item[0]} from ${selectedCounty}`;
     
             resultsList.append(migrationIn, migrationOut);
 
