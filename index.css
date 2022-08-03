@@ -10,6 +10,10 @@ td{
     background-color: aliceblue;
 }
 
+table{
+   margin-bottom: 20px;
+}
+
 /* Styling the Body*/
 body{
     background-color: rgb(130, 164, 250);
