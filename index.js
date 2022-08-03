@@ -41,24 +41,40 @@ submitForm.addEventListener('submit', (event)=>{
     let countyName = String(event.target[0].value);
     const formInput = document.getElementById('county-name');
      formInput.value = '';
-     const resultsList = document.getElementById('results-list');
-     resultsList.innerText = '';
+     const resultsDiv = document.getElementById('Migration-Results');
 //    console.log(censusData);
     let selectedCounty = dropDown.selectedOptions[0].text;
     censusData.forEach((item)=>{
         let county = item[0];
         if (item[0]=== countyName) {
             console.log(item);
-            let migrationIn = document.createElement('li');
-            let migrationOut = document.createElement('li');
-            migrationIn.textContent = `${item[1]} people have moved from ${item[0]} to ${selectedCounty}`;
-            migrationOut = `${item[2]} have moved to ${item[0]} from ${selectedCounty}`;
-    
-            resultsList.append(migrationIn, migrationOut);
-
-        }else{
-            // confirm("No Results for Your Search");
-        }
+            const resultTable = document.getElementById('results-table');
+            const migrationInHeader = resultTable.rows[0].cells[0];
+            migrationInHeader.textContent = `Moved From ${item[0]} to ${selectedCounty}: `;
+            const migrationOutHeader = resultTable.rows[1].cells[0]
+            migrationOutHeader.textContent = ` Moved To ${item[0]} from ${selectedCounty}: `;
+            const migrationInValue = resultTable.rows[0].cells[1];
+            migrationInValue.textContent = item[1];
+            const migrationOutvalue = resultTable.rows[1].cells[1];
+            migrationOutvalue.textContent = item[2];
+        };
     })
    
-})
+    let stateName = countyName.split(', ')[1]
+    console.log(stateName.length);
+    console.log(`Logging State Name: ${stateName}`);
+    fetch('http://localhost:3000/states').then(resp=>resp.json()).then((data1)=>{
+        console.log(data1[0][0]);
+        data1.forEach((item)=>{
+            let target = item[0];
+           if (target== stateName) {
+               console.log(item);
+               let stateMap = document.createElement('img');
+               stateMap.src = item[1];
+               resultsDiv.append(stateMap);  
+           };
+        });
+        });
+    })
+   
+
