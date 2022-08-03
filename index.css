@@ -1,0 +1,21 @@
+/*Styling The Results Table */
+table, th, td {
+    border: 1px solid;
+  }
+
+th {
+    background-color: rgb(90, 114, 250);
+}
+td{
+    background-color: aliceblue;
+}
+
+/* Styling the Body*/
+body{
+    background-color: rgb(130, 164, 250);
+}
+
+/*Styling the Tableau Hide/Show Button*/
+#tableau-btn{
+    background-color: rgb(87, 133, 250);
+}
