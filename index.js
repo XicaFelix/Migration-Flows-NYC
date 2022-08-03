@@ -70,8 +70,11 @@ submitForm.addEventListener('submit', (event)=>{
            if (target== stateName) {
                console.log(item);
                let stateMap = document.createElement('img');
+               stateMap.id = 'state-map'
                stateMap.src = item[1];
-               resultsDiv.append(stateMap);  
+               const mapTitle = document.createElement('h3');
+               mapTitle.textContent = `MAP of ALL COUNTIES IN ${item[0]}`;
+               resultsDiv.append(mapTitle, stateMap);  
            };
         });
         });

@@ -13,9 +13,67 @@ td{
 /* Styling the Body*/
 body{
     background-color: rgb(130, 164, 250);
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 10px;
+    text-align: left;
 }
 
-/*Styling the Tableau Hide/Show Button*/
+/*Styling the Tableau Dashboard and the Hide/Show Button*/
 #tableau-btn{
     background-color: rgb(87, 133, 250);
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: antiquewhite;
+    padding: 10px;
+    font-size: medium;
+}
+
+/*Styling the Header*/
+header{
+    padding: 30px;
+    text-align: center;
+    background-color: rgb(30, 90, 239);
+    color: antiquewhite;
+
+}
+/*Styling the Navigation Bar*/
+.nav-all{
+    position: relative;
+    background-color: rgb(66, 37, 230);
+    overflow: hidden;
+}
+.nav-all a{
+    float: left;
+    color: #d6d5f4;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.nav-all a:hover{
+    background-color: rgb(156, 152, 180);
+    color:#d6d5f4;
+}
+
+.nav-all a:active{
+    color: antiquewhite;
+    background-color:rgb(30, 90, 239);
+}
+.nav-right{
+   float: right; 
+}
+
+.nav-center{
+    float: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%)  
+}
+
+#state-map{
+    margin:auto;
+    max-height: 900px;
+    max-width: 900px;
 }
