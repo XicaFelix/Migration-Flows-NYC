@@ -44,21 +44,23 @@ submitForm.addEventListener('submit', (event)=>{
      const resultsDiv = document.getElementById('Migration-Results');
 //    console.log(censusData);
     let selectedCounty = dropDown.selectedOptions[0].text;
-    censusData.forEach((item)=>{
-        let county = item[0];
-        if (item[0]=== countyName) {
-            console.log(item);
-            const resultTable = document.getElementById('results-table');
-            const migrationInHeader = resultTable.rows[0].cells[0];
-            migrationInHeader.textContent = `Moved From ${item[0]} to ${selectedCounty}: `;
-            const migrationOutHeader = resultTable.rows[1].cells[0]
-            migrationOutHeader.textContent = ` Moved To ${item[0]} from ${selectedCounty}: `;
-            const migrationInValue = resultTable.rows[0].cells[1];
-            migrationInValue.textContent = item[1];
-            const migrationOutvalue = resultTable.rows[1].cells[1];
-            migrationOutvalue.textContent = item[2];
-        };
-    })
+    let matchState = censusData.find(item=> item[0] === countyName);
+    console.log(matchState);
+    // censusData.forEach((item)=>{
+    //     let county = item[0];
+    //     if (item[0]=== countyName) {
+    //         console.log(item);
+    //         const resultTable = document.getElementById('results-table');
+    //         const migrationInHeader = resultTable.rows[0].cells[0];
+    //         migrationInHeader.textContent = `Moved From ${item[0]} to ${selectedCounty}: `;
+    //         const migrationOutHeader = resultTable.rows[1].cells[0]
+    //         migrationOutHeader.textContent = ` Moved To ${item[0]} from ${selectedCounty}: `;
+    //         const migrationInValue = resultTable.rows[0].cells[1];
+    //         migrationInValue.textContent = item[1];
+    //         const migrationOutvalue = resultTable.rows[1].cells[1];
+    //         migrationOutvalue.textContent = item[2];
+    //     };
+    // })
    
     let stateName = countyName.split(', ')[1]
     console.log(stateName.length);
