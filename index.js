@@ -43,27 +43,29 @@ submitForm.addEventListener('submit', (event)=>{
      formInput.value = '';
      const resultsDiv = document.getElementById('Migration-Results');
 //    console.log(censusData);
-    let selectedCounty = dropDown.selectedOptions[0].text;
+    let selectedBorough = dropDown.selectedOptions[0].text;
     let matchingState = censusData.find(item=> item[0] === countyName);
-    displayResults(matchingState, selectedCounty);
+    displayResults(matchingState, selectedBorough);
    
     let stateName = countyName.split(', ')[1]
     console.log(stateName.length);
     console.log(`Logging State Name: ${stateName}`);
     fetch('http://localhost:3000/states').then(resp=>resp.json()).then((data1)=>{
         console.log(data1[0][0]);
-        data1.forEach((item)=>{
-            let target = item[0];
-           if (target== stateName) {
-               console.log(item);
-               let stateMap = document.createElement('img');
-               stateMap.id = 'state-map'
-               stateMap.src = item[1];
-               const mapTitle = document.createElement('h3');
-               mapTitle.textContent = `MAP of ALL COUNTIES IN ${item[0]}`;
-               resultsDiv.append(mapTitle, stateMap);  
-           };
-        });
+        let jsonState = data1.find(item=> item[0]===stateName);
+        displayMap(jsonState);
+        // data1.forEach((item)=>{
+        //     let target = item[0];
+        //    if (target== stateName) {
+        //        console.log(item);
+        //        let stateMap = document.createElement('img');
+        //        stateMap.id = 'state-map'
+        //        stateMap.src = item[1];
+        //        const mapTitle = document.createElement('h3');
+        //        mapTitle.textContent = `MAP of ALL COUNTIES IN ${item[0]}`;
+        //        resultsDiv.append(mapTitle, stateMap);  
+        //    };
+        // });
         });
     })
    
@@ -77,4 +79,14 @@ function displayResults(state, county){
     migrationInValue.textContent = state[1];
     const migrationOutvalue = resultTable.rows[1].cells[1];
     migrationOutvalue.textContent = state[2];
+}
+
+function displayMap(state){
+    const resultsDiv = document.getElementById('Migration-Results');
+    let stateMap = document.createElement('img');
+    stateMap.id = 'state-map'
+    stateMap.src = state[1];
+    const mapTitle = document.createElement('h3');
+    mapTitle.textContent = `MAP of ALL COUNTIES IN ${state[0]}`;
+    resultsDiv.append(mapTitle, stateMap);  
 }
