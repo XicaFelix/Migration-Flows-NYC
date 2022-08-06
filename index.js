@@ -41,6 +41,8 @@ submitForm.addEventListener('submit', (event)=>{
     let countyName = String(event.target[0].value);
     const formInput = document.getElementById('county-name');
      formInput.value = '';
+     const mapDiv = document.getElementById('results-map');
+    mapDiv.innerHTML = '';
      const resultsDiv = document.getElementById('Migration-Results');
 //    console.log(censusData);
     let selectedBorough = dropDown.selectedOptions[0].text;
@@ -54,18 +56,6 @@ submitForm.addEventListener('submit', (event)=>{
         console.log(data1[0][0]);
         let jsonState = data1.find(item=> item[0]===stateName);
         displayMap(jsonState);
-        // data1.forEach((item)=>{
-        //     let target = item[0];
-        //    if (target== stateName) {
-        //        console.log(item);
-        //        let stateMap = document.createElement('img');
-        //        stateMap.id = 'state-map'
-        //        stateMap.src = item[1];
-        //        const mapTitle = document.createElement('h3');
-        //        mapTitle.textContent = `MAP of ALL COUNTIES IN ${item[0]}`;
-        //        resultsDiv.append(mapTitle, stateMap);  
-        //    };
-        // });
         });
     })
    
@@ -82,11 +72,11 @@ function displayResults(state, county){
 }
 
 function displayMap(state){
-    const resultsDiv = document.getElementById('Migration-Results');
+    const mapDiv = document.getElementById('results-map');
     let stateMap = document.createElement('img');
     stateMap.id = 'state-map'
     stateMap.src = state[1];
     const mapTitle = document.createElement('h3');
     mapTitle.textContent = `MAP of ALL COUNTIES IN ${state[0]}`;
-    resultsDiv.append(mapTitle, stateMap);  
+    mapDiv.append(mapTitle, stateMap);  
 }
