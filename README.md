@@ -20,9 +20,6 @@ With this project, I sought to investigate where people are leaving when they mo
     - Display a map for the state containing the specified county
 <br></br>
 
-#### App in Action
-
-
 ## Top 3 Challenges
 There were several challenging aspects to this project, here are the top 3:
 
