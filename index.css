@@ -10,15 +10,21 @@ td{
     background-color: aliceblue;
 }
 
-
+table{
+    display: table;
+    margin: 0 auto;
+}
 /* Styling the Body*/
 body{
     background-color: rgb(130, 164, 250);
     font-family: Arial, Helvetica, sans-serif;
-    margin: 10px;
-    text-align: left;
+    margin: auto;
+    text-align: center;
 }
 
+#main{
+    margin-bottom: 75px;
+}
 /*Styling the Tableau Dashboard and the Hide/Show Button*/
 #tableau-btn{
     background-color: rgb(87, 133, 250);
@@ -29,6 +35,14 @@ body{
     font-size: medium;
 }
 
+#viz1659017721335{
+    position: static !important;
+}
+#Tableau-Container{
+    display: table;
+    margin: 0 auto;
+    min-width:650px;
+}
 /*Styling the Header*/
 header{
     padding: 30px;
@@ -50,6 +64,7 @@ header{
     padding: 14px 16px;
     text-decoration: none;
     font-size: 17px;
+    margin-bottom: 1px;
 }
 
 .nav-all a:hover{
@@ -78,3 +93,17 @@ header{
     max-height: 900px;
     max-width: 900px;
 }
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+
+  .sticky + .main {
+    padding-top: 60px;
+  }
+
+  p{
+      padding: 10px 10px;
+  }
